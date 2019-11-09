@@ -44,7 +44,7 @@ def process_page(ext, folder):
                         # Keep trying to read the lines until success
                         while True:
                             try:
-                                lines_new = [item.text for item in driver.find_elements_by_xpath("//div[@class='ace_line']")[:-2]]
+                                lines_new = [item.get_attribute("innerText") for item in driver.find_elements_by_xpath("//div[@class='ace_line']")[:-2]]
                             except StaleElementReferenceException:
                                 continue
                             break
@@ -62,7 +62,7 @@ def process_page(ext, folder):
                     # Handle the last line separately
                     while True:
                         try:
-                            f.write(driver.find_elements_by_xpath("//div[@class='ace_line']")[-2].text)
+                            f.write(driver.find_elements_by_xpath("//div[@class='ace_line']")[-2].get_attribute("innerText"))
                         except StaleElementReferenceException:
                             continue
                         break
@@ -86,7 +86,7 @@ print("Enter your user ID:")
 user_id = input()
 password = getpass("Enter your password:\n")
 # Load webpage
-driver = webdriver.Firefox()
+driver = webdriver.Chrome()
 driver.maximize_window()
 driver.implicitly_wait(IMPLICIT_WAIT)
 driver.get(URL)
