@@ -34,7 +34,7 @@ def process_page(ext, folder):
             try:
                 # Skip if question is MCQ
                 if len(driver.find_elements_by_xpath("//div[@class='ace_line']")) > 1:
-                    file = subfolder + "/Question " + str(question_number) + ".js"
+                    file = subfolder + "/Task " + str(question_number) + " Solution.js"
                     f = open(file, "w", encoding="utf-8")
                     lines = []
                     # Click on the text editor
