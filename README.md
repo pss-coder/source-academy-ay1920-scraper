@@ -14,6 +14,6 @@ Because the Source Academy is constantly being improved upon, it is likely that 
 3. [ChromeDriver - WebDriver for Chrome](https://chromedriver.chromium.org/downloads) (tested: ChromeDriver 78.0.3904.70)
 
 ### Usage
-Run the scraper with `python parser.py`.
+Run the scraper with `python scraper.py`.
 
 **Take note that the program files will be created in your current working directory.**
